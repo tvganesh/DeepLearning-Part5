@@ -251,7 +251,7 @@ def layerActivationBackward(dA, cache, Y, activationFunc):
   
     if activationFunc == 'softmax':
         dW = 1/numtraining * np.dot(A_prev,dZ)
-        db = np.sum(dZ, axis=0, keepdims=True)
+        db = 1/numtraining * np.sum(dZ, axis=0, keepdims=True)
         dA_prev = np.dot(dZ,W)
     else:
         #print(numtraining)
